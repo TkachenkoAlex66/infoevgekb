@@ -3,9 +3,14 @@
 #   Деплой на Render
 # ============================================
 
-from flask import Flask, render_template_string
+from flask import Flask, render_template_string, send_from_directory
 
 app = Flask(__name__)
+
+# ==== Раздача картинки из корня репозитория ====
+@app.route('/avatar.jpg')
+def avatar():
+    return send_from_directory('.', 'avatar.jpg')
 
 HTML = """
 <!DOCTYPE html>
@@ -43,14 +48,11 @@ HTML = """
     height:140px;
     border-radius:50%;
     object-fit:cover;
-    border:4px solid transparent;
-    background:linear-gradient(135deg, #58a6ff, #bc8cff) border-box;
-    -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
+    border:4px solid #58a6ff;
     margin:0 auto 20px;
     box-shadow:0 10px 40px rgba(188,140,255,.4);
     display:block;
+    background:linear-gradient(135deg, #58a6ff, #bc8cff);
   }
   h1 {
     font-size:42px;
@@ -128,7 +130,7 @@ HTML = """
 </head>
 <body>
   <div class="card">
-    <img class="avatar" src="https://raw.githubusercontent.com/TkachenkoAlex66/infoevgekb/main/avatar.jpg" alt="Евгений">
+    <img class="avatar" src="/avatar.jpg" alt="Евгений">
     <h1>Евгений</h1>
     <div class="subtitle">📍 Екатеринбург</div>
 
