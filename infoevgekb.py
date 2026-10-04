@@ -39,18 +39,18 @@ HTML = """
     box-shadow:0 20px 60px rgba(88,166,255,.15);
   }
   .avatar {
-    width:120px;
-    height:120px;
+    width:140px;
+    height:140px;
     border-radius:50%;
-    background:linear-gradient(135deg, #58a6ff, #bc8cff);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:56px;
-    font-weight:bold;
-    color:#fff;
+    object-fit:cover;
+    border:4px solid transparent;
+    background:linear-gradient(135deg, #58a6ff, #bc8cff) border-box;
+    -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
     margin:0 auto 20px;
     box-shadow:0 10px 40px rgba(188,140,255,.4);
+    display:block;
   }
   h1 {
     font-size:42px;
@@ -128,7 +128,7 @@ HTML = """
 </head>
 <body>
   <div class="card">
-    <div class="avatar">Е</div>
+    <img class="avatar" src="https://raw.githubusercontent.com/TkachenkoAlex66/infoevgekb/main/avatar.jpg" alt="Евгений">
     <h1>Евгений</h1>
     <div class="subtitle">📍 Екатеринбург</div>
 
