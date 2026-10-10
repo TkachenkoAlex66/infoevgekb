@@ -19,7 +19,7 @@ HTML = """
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Евгений — Екатеринбург</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2358a6ff'/%3E%3Cstop offset='100%25' stop-color='%23bc8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial,sans-serif' font-size='44' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'%3E%D0%95%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2358a6ff'/%3E%3Cstop offset='100%25' stop-color='%23bc8cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='36' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='central'%3E%D0%95%3C/text%3E%3C/svg%3E">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -33,11 +33,11 @@ HTML = """
     padding:20px;
   }
   .card {
-    background:rgba(22,27,34,.8);
+    background:rgba(22,27,34,.85);
     border:1px solid #30363d;
     border-radius:24px;
     padding:50px 40px;
-    max-width:560px;
+    max-width:600px;
     width:100%;
     text-align:center;
     backdrop-filter:blur(20px);
@@ -87,6 +87,71 @@ HTML = """
   .info-text { flex:1; }
   .info-label { color:#8b949e; font-size:12px; }
   .info-value { font-weight:600; font-size:15px; }
+
+  /* ===== ПРОЕКТЫ ===== */
+  .section-title {
+    font-size:14px;
+    color:#8b949e;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin:30px 0 16px;
+    text-align:left;
+    padding-left:4px;
+  }
+  .projects {
+    display:grid;
+    gap:12px;
+    margin-bottom:24px;
+  }
+  .project {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 20px;
+    background:rgba(13,17,23,.6);
+    border:1px solid #30363d;
+    border-radius:12px;
+    text-align:left;
+    transition:.2s;
+    text-decoration:none;
+    color:#e6edf3;
+  }
+  .project:hover {
+    border-color:#58a6ff;
+    transform:translateX(4px);
+    box-shadow:0 4px 20px rgba(88,166,255,.15);
+  }
+  .project-icon {
+    font-size:28px;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg, rgba(88,166,255,.2), rgba(188,140,255,.2));
+    border-radius:10px;
+    flex-shrink:0;
+  }
+  .project-info { flex:1; min-width:0; }
+  .project-name {
+    font-weight:600;
+    font-size:15px;
+    margin-bottom:2px;
+  }
+  .project-desc {
+    color:#8b949e;
+    font-size:12px;
+  }
+  .project-arrow {
+    color:#484f58;
+    font-size:18px;
+    transition:.2s;
+  }
+  .project:hover .project-arrow {
+    color:#58a6ff;
+    transform:translateX(4px);
+  }
+
   .socials {
     display:flex;
     gap:12px;
@@ -153,16 +218,30 @@ HTML = """
         <div class="info-icon">🎮</div>
         <div class="info-text">
           <div class="info-label">Хобби</div>
-          <div class="info-value">Делать игры</div>
+          <div class="info-value">Делать игры и сайты</div>
         </div>
       </div>
-      <div class="info-item">
-        <div class="info-icon">🚀</div>
-        <div class="info-text">
-          <div class="info-label">Проект</div>
-          <div class="info-value"><a href="https://anygen.onrender.com" target="_blank" style="color:#58a6ff;text-decoration:none;">AnyGen — 43 генератора</a></div>
+    </div>
+
+    <div class="section-title">🚀 Мои проекты</div>
+    <div class="projects">
+      <a href="https://anygen.onrender.com" target="_blank" class="project">
+        <div class="project-icon">🎲</div>
+        <div class="project-info">
+          <div class="project-name">AnyGen</div>
+          <div class="project-desc">43 генератора в одном месте</div>
         </div>
-      </div>
+        <div class="project-arrow">→</div>
+      </a>
+
+      <a href="https://qrgenhere.onrender.com" target="_blank" class="project">
+        <div class="project-icon">📱</div>
+        <div class="project-info">
+          <div class="project-name">QR Generator</div>
+          <div class="project-desc">Генератор QR-кодов с цветами</div>
+        </div>
+        <div class="project-arrow">→</div>
+      </a>
     </div>
 
     <div class="socials">
